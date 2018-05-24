@@ -1,5 +1,14 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
+        ItemDatabaseControllerSingleton.getInstance().insert(new Item("LCD",1000));
+        ItemDatabaseControllerSingleton.getInstance().insert(new Item("Dish",2000));
+        ItemDatabaseControllerSingleton.getInstance().insert(new Item("Laptop",3000));
+        ArrayList<Item> products = ItemDatabaseControllerSingleton.getInstance().select();
+        for (Item product : products) {
+            System.out.println(product.getName() + " " + product.getPrice());
+        }
         Cart cart = new Cart();
         cart.addItem(new LineItem("LCD",1000,2));
         cart.addItem(new LineItem("Dish",2000,1));

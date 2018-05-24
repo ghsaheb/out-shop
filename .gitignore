@@ -18,6 +18,7 @@ ompiled class file
 *.iws
 *.ipr
 .idea/
+out/
 
 # Mac
 .DS_STORE
