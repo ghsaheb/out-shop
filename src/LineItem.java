@@ -2,9 +2,9 @@ public class LineItem {
     private int quantity;
     private Item item;
 
-    public LineItem(String name, int price, int quantity) {
+    public LineItem(Item item, int quantity) {
         this.quantity = quantity;
-        this.item = new Item(name,price);
+        this.item = item;
     }
 
     public int getQuantity() {
