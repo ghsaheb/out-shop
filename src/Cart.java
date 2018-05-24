@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 
 public class Cart {
-    private ArrayList<Item> items = new ArrayList<Item>();
-    private CalculateTotalFactory calculateTotalFactory = new CalculateTotalFactory();
+    private ArrayList<LineItem> lineItems = new ArrayList<>();
 
-    public void addItem(Item item){
-        this.items.add(item);
+    public void addItem(LineItem lineItem){
+        this.lineItems.add(lineItem);
     }
 
-    public int calculateTotal(String type){
-        return calculateTotalFactory.getCalculationType(type).calculateTotal(items);
+    public ArrayList<LineItem> getLineItems() {
+        return lineItems;
     }
 }
