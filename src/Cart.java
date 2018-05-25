@@ -8,7 +8,7 @@ public class Cart {
         for (LineItem lineItem1 : lineItems) {
             if (lineItem1.getItem().equals(lineItem.getItem())){
                 notExists = false;
-                lineItem1.setQuantity(lineItem1.getQuantity()+1);
+                lineItem1.setQuantity(lineItem1.getQuantity()+lineItem.getQuantity());
             }
         }
         if(notExists)
