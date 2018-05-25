@@ -4,7 +4,15 @@ public class Cart {
     private ArrayList<LineItem> lineItems = new ArrayList<>();
 
     public void addItem(LineItem lineItem){
-        this.lineItems.add(lineItem);
+        boolean notExists = true;
+        for (LineItem lineItem1 : lineItems) {
+            if (lineItem1.getItem().equals(lineItem.getItem())){
+                notExists = false;
+                lineItem1.setQuantity(lineItem1.getQuantity()+1);
+            }
+        }
+        if(notExists)
+            this.lineItems.add(lineItem);
     }
 
     public ArrayList<LineItem> getLineItems() {

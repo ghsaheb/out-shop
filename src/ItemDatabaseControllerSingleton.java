@@ -71,4 +71,17 @@ public class ItemDatabaseControllerSingleton{
         }
         return items;
     }
+
+    public void truncate(){
+        PreparedStatement stmt = null;
+        try {
+            c = getConnection();
+            stmt = c.prepareStatement("DELETE FROM item;");
+            stmt.executeUpdate();
+            stmt.close();
+            c.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
