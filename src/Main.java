@@ -6,8 +6,9 @@ public class Main {
     }
 
     private static void addProductsToDB() {
-        ItemDatabaseControllerSingleton.getInstance().insert(new Item("LCD",1000));
-        ItemDatabaseControllerSingleton.getInstance().insert(new Item("Dish",2000));
-        ItemDatabaseControllerSingleton.getInstance().insert(new Item("Laptop",3000));
+        ItemDatabaseControllerSingleton itemDatabaseControllerSingleton = ItemDatabaseControllerSingleton.getInstance();
+        itemDatabaseControllerSingleton.insert(new Item("LCD",1000));
+        itemDatabaseControllerSingleton.insert(new Item("Dishwasher",2000));
+        itemDatabaseControllerSingleton.insert(new Item("Laptop",3000));
     }
 }

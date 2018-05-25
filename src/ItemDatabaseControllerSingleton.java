@@ -1,7 +1,7 @@
 import java.sql.*;
 import java.util.ArrayList;
 
-public class ItemDatabaseControllerSingleton {
+public class ItemDatabaseControllerSingleton{
     private static Connection c = null;
 
     private static ItemDatabaseControllerSingleton ourInstance = new ItemDatabaseControllerSingleton();
@@ -15,8 +15,6 @@ public class ItemDatabaseControllerSingleton {
         try {
             Class.forName("org.sqlite.JDBC");
             c = getConnection();
-            System.out.println("Opened database successfully");
-
             stmt = c.createStatement();
             String sql = "CREATE TABLE IF NOT EXISTS \"item\" (\n" +
                     "  \"id\" char PRIMARY KEY NOT NULL,\n" +

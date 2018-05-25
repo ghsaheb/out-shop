@@ -3,14 +3,18 @@ import java.util.HashMap;
 
 public class ShoppingFacade {
     private HashMap<Integer, Item> itemsByIndex = new HashMap<>();
-    private IOFactory io = new IOFactory();
     private Cart cart = new Cart();
     private Invoice invoice = new Invoice();
+    private IOFactory io = new IOFactory();
     private SelectedIOType selectedIOType = new SelectedIOType(io.getIOType("commandline"));
     private ProductListPrinter productListPrinter = new ProductListPrinter();
 
 
     public ShoppingFacade(ArrayList<Item> products) {
+        MapItemsToIndex(products);
+    }
+
+    private void MapItemsToIndex(ArrayList<Item> products) {
         for (int i = 1; i < products.size()+1; i++) {
             Item product = products.get(i-1);
             itemsByIndex.put(i,product);
@@ -25,8 +29,8 @@ public class ShoppingFacade {
             if (selectedNumber != 0) {
                 cart.addItem(selectProduct(selectedNumber));
             } else {
-                InvoicePrinter invoicePrinter = new InvoicePrinter();
-                invoicePrinter.printInvoice(cart.getLineItems(),invoice.calculateTotal("simple", cart.getLineItems()));
+                PrintInvoiceStrategy invoicePrinter = new InvoicePrinterSimple();
+                invoicePrinter.printInvoice(cart.getLineItems(),invoice.calculateTotal("simple", cart.getLineItems()),selectedIOType);
                 break;
             }
         }
@@ -38,6 +42,4 @@ public class ShoppingFacade {
         int quantity = Integer.parseInt(io.getIOType("commandline").read());
         return new LineItem(item, quantity);
     }
-
-
 }
