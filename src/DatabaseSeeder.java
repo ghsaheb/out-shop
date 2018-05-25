@@ -18,4 +18,9 @@ public class DatabaseSeeder {
         itemDatabaseControllerSingleton.insert(new Item("Dishwasher",2000));
         itemDatabaseControllerSingleton.insert(new Item("Laptop",3000));
     }
+
+    public static void main(String[] args) {
+        DatabaseSeeder databaseSeeder = DatabaseSeeder.getInstance();
+        databaseSeeder.addProductsToDB();
+    }
 }
