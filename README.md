@@ -4,7 +4,7 @@ OutShop is a checkout system for adding products in shopping cart
 
 ### Prerequisites
 
-sqlite-jdbc-3.8.11.2.jar
+[sqlite-jdbc-3.8.11.2.jar](https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc/3.8.11.2)
 
 ## Getting Started
 1. Download and place sqlite-jdbc-3.8.11.2.jar into lib folder.
